@@ -1,7 +1,7 @@
 // Include React
-import React from 'react';
+import React, { Component } from 'react';
 
-class Main extends React.Component{
+class Main extends Component{
 
   // Here we render the function
   render() {
