@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		app: './app/app.js'
+		app: './client/index.js'
 	},
 	output: {
 		path: path.resolve(__dirname, './public/assets/javascript'),
@@ -17,7 +17,7 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['es2015', 'react']
+						presets: ['env', 'react']
 					}
 				}
 			},
