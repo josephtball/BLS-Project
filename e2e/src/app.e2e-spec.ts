@@ -9,6 +9,6 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to video-village!');
+    expect(page.getParagraphText()).toEqual('Welcome to Video-Village!');
   });
 });
