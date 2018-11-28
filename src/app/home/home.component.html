@@ -1,2 +1,7 @@
 <h1>Welcome to the Video Village</h1>
 <button routerLink="login">Click Here to Login</button>
+<div *ngFor="let movie of movies">
+  <h3>{{movie.title}}</h3>
+  <img src="{{'https://image.tmdb.org/t/p/w185' + movie.poster_path}}" alt="">
+  <p>{{movie.overview}}</p>
+</div>
