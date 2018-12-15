@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { TheMovieDbService } from '../the-movie-db.service';
 
 @Component({
@@ -14,8 +14,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.TheMovieDb.getPopularMovies().subscribe((res) => {
       res['results'].map((movie) => this.movies.push(movie));
-      console.log(this.movies);
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
   }
 
 }
