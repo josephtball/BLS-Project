@@ -1,5 +1,11 @@
 <h1>Welcome to the Video Village</h1>
 <button routerLink="login">Click Here to Login</button>
+<br>
+<select (change)="onChange($event.target.value)">
+  <option value="movies">Movies</option>
+  <option value="shows">TV Shows</option>
+  <option value="actors">Actors & Directors</option>
+</select>
 <div *ngFor="let movie of movies">
   <h3>{{movie.title}}</h3>
   <img src="{{'https://image.tmdb.org/t/p/w185' + movie.poster_path}}" alt="">
