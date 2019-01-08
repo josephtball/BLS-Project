@@ -1,6 +1,9 @@
+// nOlGNmj0zccn84Zn
 const http = require('http');
 const debug = require('debug')('node-angular');
 const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -19,6 +22,17 @@ const normalizePort = val => {
 
   return false;
 };
+
+mongoose.connect('mongodb+srv://JoeB:nOlGNmj0zccn84Zn@cluster0-fq32y.mongodb.net/test?retryWrites=true')
+  .then(() => {
+    console.log('Connected to database!');
+  })
+  .catch(() => {
+    console.log('Database connection failed.');
+  })
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const onError = error => {
   if (error.syscall !== 'listen') {
