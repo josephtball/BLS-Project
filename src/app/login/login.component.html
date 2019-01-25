@@ -1,7 +1,6 @@
-<form action="">
-  <label for="name">Name:</label>
-  <input type="text" name="name">
-  <br>
-  <label for="password">Password:</label>
-  <input type="text">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+  <input formControlName="username">
+  <input formControlName="password">
+  <button type="submit" [disabled]="contactForm.pristine">Login</button>
+  <button type="reset" (click)="revert()" [disabled]="contactForm.pristine">Revert</button>
 </form>
