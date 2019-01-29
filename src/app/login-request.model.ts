@@ -1,4 +1,4 @@
-export class LoginForm {
+export class LoginRequest {
     username: string = '';
     password: string = '';
 }

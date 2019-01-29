@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +10,29 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor () {
-    this.loginForm = this.createFormGroup();
+  constructor (private formBuilder: FormBuilder) {
+    this.loginForm = this.createFormGroupWithFormBuilder();
+    // this.loginForm = this.createFormGroup();
   };
 
-  createFormGroup() {
-    return new FormGroup({
-      username: new FormControl(),
-      password: new FormControl()
-    })
+  createFormGroupWithFormBuilder(formBuilder: FormBuilder) {
+    return formBuilder.group({
+      username: 'username',
+      password: 'password'
+    });
+  }
+
+  // createFormGroup() {
+  //   return new FormGroup({
+  //     username: new FormControl(),
+  //     password: new FormControl()
+  //   })
+  // }
+
+  onSubmit() {
+    const result: LoginRequest = Object.assign({}, this.loginForm.value);
+
+    console.log(result);
   }
 
   ngOnInit() { };
